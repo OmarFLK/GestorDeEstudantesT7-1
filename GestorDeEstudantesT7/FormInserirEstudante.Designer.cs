@@ -231,6 +231,7 @@
             this.buttonCadastrar.TabIndex = 18;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
+            this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
             // 
             // FormInserirEstudante
             // 
