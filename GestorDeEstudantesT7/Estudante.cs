@@ -15,7 +15,8 @@ namespace GestorDeEstudantesT7
         public bool inserirEstudante(string nome, string sobrenome, DateTime nascimento, 
             string telefone, string genero, string endereco, MemoryStream foto)
         {
-            MySqlCommand comando = new MySqlCommand("INSERT INTO `estudantes`(`id`, `nome`, `sobrenome`, `nascimento`, `genero`, `telefone`, `endereco`, `foto`) VALUES (@nome,@sobrenome,@nascimento,@genero,@telefone,@endereco,@foto)", meuBancoDeDados.getConexao);
+            // Removido `id` da lista de parâmetros a serem alterados.
+            MySqlCommand comando = new MySqlCommand("INSERT INTO `estudantes`(`nome`, `sobrenome`, `nascimento`, `genero`, `telefone`, `endereco`, `foto`) VALUES (@nome,@sobrenome,@nascimento,@genero,@telefone,@endereco,@foto)", meuBancoDeDados.getConexao);
 
             comando.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
             comando.Parameters.Add("@sobrenome", MySqlDbType.VarChar).Value = sobrenome;
@@ -23,7 +24,8 @@ namespace GestorDeEstudantesT7
             comando.Parameters.Add("@genero", MySqlDbType.VarChar).Value = genero;
             comando.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
             comando.Parameters.Add("@endereco", MySqlDbType.Text).Value = endereco;
-            comando.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = foto;
+            // Incluído o método ToArray() em foto.
+            comando.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = foto.ToArray();
 
             meuBancoDeDados.abrirConexao();
 
