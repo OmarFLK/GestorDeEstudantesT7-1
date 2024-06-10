@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GestorDeEstudantesT7
 {
@@ -69,6 +71,27 @@ namespace GestorDeEstudantesT7
             comando.Parameters.Add("@endereco", MySqlDbType.Text).Value = endereco;
             // Incluído o método ToArray() em foto.
             comando.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = foto.ToArray();
+
+            meuBancoDeDados.abrirConexao();
+
+            if (comando.ExecuteNonQuery() == 1)
+            {
+                meuBancoDeDados.fecharConexao();
+                return true;
+            }
+            else
+            {
+                meuBancoDeDados.fecharConexao();
+                return false;
+            }
+        }
+
+        // Apaga um estudante com base em seu ID.
+        public bool apagarEstudante(int id)
+        {
+            MySqlCommand comando = new MySqlCommand("DELETE FROM `estudantes` WHERE `id`= @id");
+        
+            comando.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
 
             meuBancoDeDados.abrirConexao();
 
