@@ -241,6 +241,7 @@
             this.buttonSalvar.TabIndex = 27;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // buttonApagar
             // 
@@ -251,6 +252,7 @@
             this.buttonApagar.TabIndex = 28;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
+            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // buttonEnviarFoto
             // 
@@ -289,7 +291,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxNome);
             this.Name = "FormAtualizarApagarEstudante";
-            this.Text = "FormAtualizarApagarEstudante";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SGA - Atualizar e Deletar";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).EndInit();
