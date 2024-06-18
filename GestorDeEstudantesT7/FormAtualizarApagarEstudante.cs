@@ -18,6 +18,10 @@ namespace GestorDeEstudantesT7
             InitializeComponent();
         }
 
+        // Variável global do tipo Estudante, ou instância de um
+        // objeto do tipo Estudante, chamado "estudante".
+        Estudante estudante = new Estudante();
+
         private void buttonEnviarFoto_Click(object sender, EventArgs e)
         {
             // Abre janela para pesquisar a imagem no computador.
@@ -33,8 +37,6 @@ namespace GestorDeEstudantesT7
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            Estudante estudante = new Estudante();
-
             // Esta linha só existe em "buttonSalvar_Click(...)"
             int id = Convert.ToInt32(textBoxID.Text);
 
@@ -105,7 +107,36 @@ namespace GestorDeEstudantesT7
 
         private void buttonApagar_Click(object sender, EventArgs e)
         {
+            // Referência a ID do aluno.
+            int idDoAluno = Convert.ToInt32(textBoxID.Text);
 
+            // Mostrar uma caixa de diálogo perguntando se o usuário
+            // tem certeza de que quer apagar o aluno.
+            if(MessageBox.Show("Tem certeza que deseja apagar o aluno?",
+                "Apagar Estudante", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (estudante.apagarEstudante(idDoAluno))
+                {
+                    MessageBox.Show("Aluno apagado!",
+                        "Apagar Estudante", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    // Limpa as caixas de texto.
+                    textBoxID.Text = "";
+                    textBoxNome.Text = "";
+                    textBoxTelefone.Text = "";
+                    textBoxEndereco.Text = "";
+                    dateTimePickerNascimento.Value = DateTime.Now;
+                    pictureBoxFoto.Image = null;
+                }
+                else
+                {
+                    MessageBox.Show("Aluno não apagado!",
+                        "Apagar Estudante", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
