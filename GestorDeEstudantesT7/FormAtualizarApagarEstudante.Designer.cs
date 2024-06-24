@@ -208,18 +208,19 @@
             // buttonBuscar
             // 
             this.buttonBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.Location = new System.Drawing.Point(228, 53);
+            this.buttonBuscar.Location = new System.Drawing.Point(228, 39);
             this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(90, 21);
+            this.buttonBuscar.Size = new System.Drawing.Size(90, 35);
             this.buttonBuscar.TabIndex = 24;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(25, 56);
+            this.label8.Location = new System.Drawing.Point(26, 51);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(23, 17);
             this.label8.TabIndex = 26;
@@ -227,7 +228,7 @@
             // 
             // textBoxID
             // 
-            this.textBoxID.Location = new System.Drawing.Point(133, 53);
+            this.textBoxID.Location = new System.Drawing.Point(133, 48);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(87, 20);
             this.textBoxID.TabIndex = 25;

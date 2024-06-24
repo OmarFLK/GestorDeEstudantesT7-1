@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -136,6 +137,45 @@ namespace GestorDeEstudantesT7
                         "Apagar Estudante", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        // Variável global do tipo MeuBancoDeDados...
+        MeuBancoDeDados meuBancoDeDados = new MeuBancoDeDados();
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            // Converte o ID da caixa de texto para número inteiro.
+            int idDoAluno = Convert.ToInt32(textBoxID.Text);
+
+            MySqlCommand comando = new MySqlCommand("SELECT `id`, `nome`, `sobrenome`, `nascimento`, `genero`, `telefone`, `endereco`, `foto` FROM `estudantes` WHERE `id`=@idDoAluno", meuBancoDeDados.getConexao);
+            comando.Parameters.Add("@idDoAluno", MySqlDbType.Int32).Value = idDoAluno;
+
+            DataTable tabela = estudante.getEstudantes(comando);
+
+            if (tabela.Rows.Count > 0)
+            {
+                // Rows[número da linha][título da coluna]. A primeira coluna é sempre a 0.
+                textBoxID.Text = tabela.Rows[0]["id"].ToString();
+                textBoxNome.Text = tabela.Rows[0]["nome"].ToString();
+                textBoxSobrenome.Text = tabela.Rows[0]["sobrenome"].ToString();
+                textBoxTelefone.Text = tabela.Rows[0]["telefone"].ToString();
+                textBoxEndereco.Text = tabela.Rows[0]["endereco"].ToString();
+
+                dateTimePickerNascimento.Value = (DateTime)tabela.Rows[0]["nascimento"];
+
+                if (tabela.Rows[0]["genero"].ToString() == "Feminino")
+                {
+                    radioButtonFeminino.Checked = true;
+                }
+                else
+                {
+                    radioButtonMasculino.Checked = true;
+                }
+
+                byte[] foto = (byte[]) tabela.Rows[0]["foto"];
+                MemoryStream fotoStream = new MemoryStream(foto);
+                pictureBoxFoto.Image = Image.FromStream(fotoStream);
             }
         }
     }
