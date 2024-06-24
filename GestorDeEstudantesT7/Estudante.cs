@@ -95,6 +95,11 @@ namespace GestorDeEstudantesT7
 
             meuBancoDeDados.abrirConexao();
 
+            if (meuBancoDeDados.getConexao.State == ConnectionState.Open)
+            {
+                MessageBox.Show("Connection is open!", "Open", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             if (comando.ExecuteNonQuery() == 1)
             {
                 meuBancoDeDados.fecharConexao();
@@ -105,6 +110,7 @@ namespace GestorDeEstudantesT7
                 meuBancoDeDados.fecharConexao();
                 return false;
             }
+
         }
     }
 }
