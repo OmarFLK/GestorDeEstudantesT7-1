@@ -232,6 +232,8 @@
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(87, 20);
             this.textBoxID.TabIndex = 25;
+            this.textBoxID.TextChanged += new System.EventHandler(this.textBoxID_TextChanged);
+            this.textBoxID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxID_KeyPress);
             // 
             // buttonSalvar
             // 

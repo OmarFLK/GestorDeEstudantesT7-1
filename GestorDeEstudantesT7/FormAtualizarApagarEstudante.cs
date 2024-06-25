@@ -145,37 +145,57 @@ namespace GestorDeEstudantesT7
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            // Converte o ID da caixa de texto para número inteiro.
-            int idDoAluno = Convert.ToInt32(textBoxID.Text);
+           try
+           {
+                // Converte o ID da caixa de texto para número inteiro.
+                int idDoAluno = Convert.ToInt32(textBoxID.Text);
 
-            MySqlCommand comando = new MySqlCommand("SELECT `id`, `nome`, `sobrenome`, `nascimento`, `genero`, `telefone`, `endereco`, `foto` FROM `estudantes` WHERE `id`=@idDoAluno", meuBancoDeDados.getConexao);
-            comando.Parameters.Add("@idDoAluno", MySqlDbType.Int32).Value = idDoAluno;
+                MySqlCommand comando = new MySqlCommand("SELECT `id`, `nome`, `sobrenome`, `nascimento`, `genero`, `telefone`, `endereco`, `foto` FROM `estudantes` WHERE `id`=@idDoAluno", meuBancoDeDados.getConexao);
+                comando.Parameters.Add("@idDoAluno", MySqlDbType.Int32).Value = idDoAluno;
 
-            DataTable tabela = estudante.getEstudantes(comando);
+                DataTable tabela = estudante.getEstudantes(comando);
 
-            if (tabela.Rows.Count > 0)
+                if (tabela.Rows.Count > 0)
+                {
+                    // Rows[número da linha][título da coluna]. A primeira coluna é sempre a 0.
+                    textBoxID.Text = tabela.Rows[0]["id"].ToString();
+                    textBoxNome.Text = tabela.Rows[0]["nome"].ToString();
+                    textBoxSobrenome.Text = tabela.Rows[0]["sobrenome"].ToString();
+                    textBoxTelefone.Text = tabela.Rows[0]["telefone"].ToString();
+                    textBoxEndereco.Text = tabela.Rows[0]["endereco"].ToString();
+
+                    dateTimePickerNascimento.Value = (DateTime)tabela.Rows[0]["nascimento"];
+
+                    if (tabela.Rows[0]["genero"].ToString() == "Feminino")
+                    {
+                        radioButtonFeminino.Checked = true;
+                    }
+                    else
+                    {
+                        radioButtonMasculino.Checked = true;
+                    }
+
+                    byte[] foto = (byte[])tabela.Rows[0]["foto"];
+                    MemoryStream fotoStream = new MemoryStream(foto);
+                    pictureBoxFoto.Image = Image.FromStream(fotoStream);
+                }
+            } catch // Exibe uma mensagem de erro caso o usuário não digite a ID.
             {
-                // Rows[número da linha][título da coluna]. A primeira coluna é sempre a 0.
-                textBoxID.Text = tabela.Rows[0]["id"].ToString();
-                textBoxNome.Text = tabela.Rows[0]["nome"].ToString();
-                textBoxSobrenome.Text = tabela.Rows[0]["sobrenome"].ToString();
-                textBoxTelefone.Text = tabela.Rows[0]["telefone"].ToString();
-                textBoxEndereco.Text = tabela.Rows[0]["endereco"].ToString();
+                MessageBox.Show("Digite uma ID válida!", "ID Inválida", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
 
-                dateTimePickerNascimento.Value = (DateTime)tabela.Rows[0]["nascimento"];
+        private void textBoxID_TextChanged(object sender, EventArgs e)
+        {
 
-                if (tabela.Rows[0]["genero"].ToString() == "Feminino")
-                {
-                    radioButtonFeminino.Checked = true;
-                }
-                else
-                {
-                    radioButtonMasculino.Checked = true;
-                }
+        }
 
-                byte[] foto = (byte[]) tabela.Rows[0]["foto"];
-                MemoryStream fotoStream = new MemoryStream(foto);
-                pictureBoxFoto.Image = Image.FromStream(fotoStream);
+        private void textBoxID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Impede que o usuário digite letras na caixa de texto de ID.
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
