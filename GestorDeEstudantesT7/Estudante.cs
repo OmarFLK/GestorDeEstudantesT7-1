@@ -89,6 +89,13 @@ namespace GestorDeEstudantesT7
         // Apaga um estudante com base em seu ID.
         public bool apagarEstudante(int id)
         {
+            try
+            {
+
+            } catch
+            {
+
+            }
             MySqlCommand comando = new MySqlCommand("DELETE FROM `estudantes` WHERE `id`=@id");
         
             comando.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
