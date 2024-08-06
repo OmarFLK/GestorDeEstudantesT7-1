@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panelTotalDeEstudantes = new System.Windows.Forms.Panel();
-            this.panelMeninos = new System.Windows.Forms.Panel();
-            this.panelMeninas = new System.Windows.Forms.Panel();
             this.labelTotalDeEstudantes = new System.Windows.Forms.Label();
+            this.panelMeninos = new System.Windows.Forms.Panel();
             this.labelMeninos = new System.Windows.Forms.Label();
+            this.panelMeninas = new System.Windows.Forms.Panel();
             this.labelMeninas = new System.Windows.Forms.Label();
             this.panelTotalDeEstudantes.SuspendLayout();
             this.panelMeninos.SuspendLayout();
@@ -47,24 +47,6 @@
             this.panelTotalDeEstudantes.Name = "panelTotalDeEstudantes";
             this.panelTotalDeEstudantes.Size = new System.Drawing.Size(708, 204);
             this.panelTotalDeEstudantes.TabIndex = 0;
-            // 
-            // panelMeninos
-            // 
-            this.panelMeninos.BackColor = System.Drawing.Color.Yellow;
-            this.panelMeninos.Controls.Add(this.labelMeninos);
-            this.panelMeninos.Location = new System.Drawing.Point(12, 222);
-            this.panelMeninos.Name = "panelMeninos";
-            this.panelMeninos.Size = new System.Drawing.Size(351, 216);
-            this.panelMeninos.TabIndex = 1;
-            // 
-            // panelMeninas
-            // 
-            this.panelMeninas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panelMeninas.Controls.Add(this.labelMeninas);
-            this.panelMeninas.Location = new System.Drawing.Point(369, 222);
-            this.panelMeninas.Name = "panelMeninas";
-            this.panelMeninas.Size = new System.Drawing.Size(351, 216);
-            this.panelMeninas.TabIndex = 2;
             // 
             // labelTotalDeEstudantes
             // 
@@ -82,6 +64,15 @@
             this.labelTotalDeEstudantes.MouseEnter += new System.EventHandler(this.labelTotalDeEstudantes_MouseEnter);
             this.labelTotalDeEstudantes.MouseLeave += new System.EventHandler(this.labelTotalDeEstudantes_MouseLeave);
             // 
+            // panelMeninos
+            // 
+            this.panelMeninos.BackColor = System.Drawing.Color.Yellow;
+            this.panelMeninos.Controls.Add(this.labelMeninos);
+            this.panelMeninos.Location = new System.Drawing.Point(12, 222);
+            this.panelMeninos.Name = "panelMeninos";
+            this.panelMeninos.Size = new System.Drawing.Size(351, 216);
+            this.panelMeninos.TabIndex = 1;
+            // 
             // labelMeninos
             // 
             this.labelMeninos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -95,6 +86,17 @@
             this.labelMeninos.TabIndex = 1;
             this.labelMeninos.Text = "Meninos: 50%";
             this.labelMeninos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMeninos.MouseEnter += new System.EventHandler(this.labelMeninos_MouseEnter);
+            this.labelMeninos.MouseLeave += new System.EventHandler(this.labelMeninos_MouseLeave);
+            // 
+            // panelMeninas
+            // 
+            this.panelMeninas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelMeninas.Controls.Add(this.labelMeninas);
+            this.panelMeninas.Location = new System.Drawing.Point(369, 222);
+            this.panelMeninas.Name = "panelMeninas";
+            this.panelMeninas.Size = new System.Drawing.Size(351, 216);
+            this.panelMeninas.TabIndex = 2;
             // 
             // labelMeninas
             // 
@@ -109,6 +111,8 @@
             this.labelMeninas.TabIndex = 2;
             this.labelMeninas.Text = "Meninas: 50%";
             this.labelMeninas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMeninas.MouseEnter += new System.EventHandler(this.labelMeninas_MouseEnter);
+            this.labelMeninas.MouseLeave += new System.EventHandler(this.labelMeninas_MouseLeave);
             // 
             // FormEstatisticas
             // 
