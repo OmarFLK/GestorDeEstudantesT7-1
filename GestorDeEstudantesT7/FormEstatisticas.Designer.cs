@@ -54,10 +54,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTotalDeEstudantes.AutoSize = true;
-            this.labelTotalDeEstudantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalDeEstudantes.Location = new System.Drawing.Point(149, 85);
+            this.labelTotalDeEstudantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalDeEstudantes.Location = new System.Drawing.Point(232, 88);
             this.labelTotalDeEstudantes.Name = "labelTotalDeEstudantes";
-            this.labelTotalDeEstudantes.Size = new System.Drawing.Size(394, 39);
+            this.labelTotalDeEstudantes.Size = new System.Drawing.Size(230, 25);
             this.labelTotalDeEstudantes.TabIndex = 0;
             this.labelTotalDeEstudantes.Text = "Total de Estudantes: 999";
             this.labelTotalDeEstudantes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -79,10 +79,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMeninos.AutoSize = true;
-            this.labelMeninos.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMeninos.Location = new System.Drawing.Point(47, 93);
+            this.labelMeninos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMeninos.Location = new System.Drawing.Point(96, 93);
             this.labelMeninos.Name = "labelMeninos";
-            this.labelMeninos.Size = new System.Drawing.Size(232, 39);
+            this.labelMeninos.Size = new System.Drawing.Size(138, 25);
             this.labelMeninos.TabIndex = 1;
             this.labelMeninos.Text = "Meninos: 50%";
             this.labelMeninos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -104,10 +104,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMeninas.AutoSize = true;
-            this.labelMeninas.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMeninas.Location = new System.Drawing.Point(63, 93);
+            this.labelMeninas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMeninas.Location = new System.Drawing.Point(97, 93);
             this.labelMeninas.Name = "labelMeninas";
-            this.labelMeninas.Size = new System.Drawing.Size(232, 39);
+            this.labelMeninas.Size = new System.Drawing.Size(138, 25);
             this.labelMeninas.TabIndex = 2;
             this.labelMeninas.Text = "Meninas: 50%";
             this.labelMeninas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -123,7 +123,8 @@
             this.Controls.Add(this.panelMeninos);
             this.Controls.Add(this.panelTotalDeEstudantes);
             this.Name = "FormEstatisticas";
-            this.Text = "FormEstatisticas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SGA - Estastísticas";
             this.Load += new System.EventHandler(this.FormEstatisticas_Load);
             this.panelTotalDeEstudantes.ResumeLayout(false);
             this.panelTotalDeEstudantes.PerformLayout();

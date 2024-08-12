@@ -28,8 +28,46 @@ namespace GestorDeEstudantesT7
             // (não confundir com 'label').
             corPainelTotal = panelTotalDeEstudantes.BackColor;
             corPainelMeninos = panelMeninos.BackColor;
-            corPainelMeninas = panelMeninas.BackColor;  
+            corPainelMeninas = panelMeninas.BackColor;
+            
+            // Exibe os valores (total geral, total de meninos, meninas etc)
+            Estudante estudante = new Estudante();
+            
+            double totalEstudantes = 
+                Convert.ToDouble(estudante.totalDeEstudantes());
+            double totalMeninos = 
+                Convert.ToDouble(estudante.totalDeEstudantesMeninos());
+            double totalMeninas = 
+                Convert.ToDouble(estudante.totalDeEstudantesMeninas());
+
+            // Contar a porcentagem (%).
+            double porcentagemDeMeninos
+                = totalMeninos * 100 / totalEstudantes;
+            double porcentagemDeMeninas
+                = totalMeninas * 100 / totalEstudantes;
+
+            labelTotalDeEstudantes.Text = "Total de Estudantes: "
+                + totalEstudantes.ToString();
+            labelMeninos.Text = "% de Meninos: " 
+                + porcentagemDeMeninos.ToString("0.00") + "%";
+            labelMeninas.Text = "% de Meninas: "
+                + porcentagemDeMeninas.ToString("0.00") + "%";
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void labelTotalDeEstudantes_MouseEnter(object sender, EventArgs e)
         {
