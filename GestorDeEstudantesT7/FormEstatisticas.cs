@@ -108,5 +108,10 @@ namespace GestorDeEstudantesT7
             panelMeninas.BackColor = corPainelMeninas;
             labelMeninas.ForeColor = Color.Black;
         }
+
+        private void panelTotalDeEstudantes_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

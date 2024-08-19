@@ -47,6 +47,7 @@
             this.panelTotalDeEstudantes.Name = "panelTotalDeEstudantes";
             this.panelTotalDeEstudantes.Size = new System.Drawing.Size(708, 204);
             this.panelTotalDeEstudantes.TabIndex = 0;
+            this.panelTotalDeEstudantes.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTotalDeEstudantes_Paint);
             // 
             // labelTotalDeEstudantes
             // 
