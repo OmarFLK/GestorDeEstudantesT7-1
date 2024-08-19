@@ -91,6 +91,7 @@ namespace GestorDeEstudantesT7
             radioButtonFeminino.Checked = true;
             dateTimePickerNascimento.Value = DateTime.Now;
             pictureBoxFoto.Image = null;
+            //apenas para save
         }
     }
 }
