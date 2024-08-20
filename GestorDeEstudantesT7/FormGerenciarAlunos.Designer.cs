@@ -94,6 +94,7 @@
             this.buttonEnviarFoto.TabIndex = 33;
             this.buttonEnviarFoto.Text = "Enviar Foto";
             this.buttonEnviarFoto.UseVisualStyleBackColor = true;
+            this.buttonEnviarFoto.Click += new System.EventHandler(this.buttonEnviarFoto_Click);
             // 
             // label7
             // 
@@ -281,6 +282,7 @@
             this.buttonbaixarfoto.TabIndex = 39;
             this.buttonbaixarfoto.Text = "Baixar Foto";
             this.buttonbaixarfoto.UseVisualStyleBackColor = true;
+            this.buttonbaixarfoto.Click += new System.EventHandler(this.buttonbaixarfoto_Click);
             // 
             // buttonAtualizar
             // 
@@ -319,6 +321,7 @@
             this.buttonbuscardados.TabIndex = 42;
             this.buttonbuscardados.Text = "Buscar";
             this.buttonbuscardados.UseVisualStyleBackColor = true;
+            this.buttonbuscardados.Click += new System.EventHandler(this.buttonbuscardados_Click);
             // 
             // label9
             // 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -92,6 +93,45 @@ namespace GestorDeEstudantesT7
             dateTimePickerNascimento.Value = DateTime.Now;
             pictureBoxFoto.Image = null;
             //apenas para save
+        }
+
+        private void buttonEnviarFoto_Click(object sender, EventArgs e)
+        {
+            // Abre janela para pesquisar a imagem no computador.
+            OpenFileDialog procurarFoto = new OpenFileDialog();
+
+            procurarFoto.Filter = "Selecione a foto (*.jpg;*.png;*.jpeg;*.gif)|*.jpg;*.png;*.jpeg;*.gif";
+
+            if (procurarFoto.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxFoto.Image = Image.FromFile(procurarFoto.FileName);
+            }
+        }
+
+        private void buttonbaixarfoto_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog baixarFoto = new SaveFileDialog();
+            baixarFoto.FileName = "Estudante_" + textBoxID.Text;
+
+            //se não tiver foto = erro
+            if (pictureBoxFoto.Image == null)
+            {
+                MessageBox.Show("Não tem foto para baixar.");
+            }
+
+            else
+            {
+                baixarFoto.ShowDialog();    
+                pictureBoxFoto.Image.Save(baixarFoto.FileName + ("." + ImageFormat.Jpeg.ToString()));
+            }
+
+        }
+
+        private void buttonbuscardados_Click(object sender, EventArgs e)
+        {
+            string pesquisa = "SELECT * FROM `estudantes` WHERE CONCAT" + "(`nome`,`sobrenome`,`endereco`) LIKE'%" +textBoxbuscardados.text+"%'" ;
+            MySqlCommand comando = new MySqlCommand(pesquisa);
+            preencherTabela(comando);
         }
     }
 }
