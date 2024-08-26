@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGerenciarAlunos));
-            this.buttonIncluir = new System.Windows.Forms.Button();
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonEnviarFoto = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,30 +64,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListaDeAlunos)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonIncluir
-            // 
-            this.buttonIncluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIncluir.Location = new System.Drawing.Point(13, 503);
-            this.buttonIncluir.Name = "buttonIncluir";
-            this.buttonIncluir.Size = new System.Drawing.Size(90, 41);
-            this.buttonIncluir.TabIndex = 35;
-            this.buttonIncluir.Text = "Incluir";
-            this.buttonIncluir.UseVisualStyleBackColor = true;
-            // 
             // buttonSalvar
             // 
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalvar.Location = new System.Drawing.Point(205, 503);
+            this.buttonSalvar.Location = new System.Drawing.Point(156, 518);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(90, 41);
             this.buttonSalvar.TabIndex = 34;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // buttonEnviarFoto
             // 
             this.buttonEnviarFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEnviarFoto.Location = new System.Drawing.Point(13, 456);
+            this.buttonEnviarFoto.Location = new System.Drawing.Point(33, 471);
             this.buttonEnviarFoto.Name = "buttonEnviarFoto";
             this.buttonEnviarFoto.Size = new System.Drawing.Size(158, 41);
             this.buttonEnviarFoto.TabIndex = 33;
@@ -272,11 +262,12 @@
             this.buttonBuscarID.TabIndex = 36;
             this.buttonBuscarID.Text = "Buscar";
             this.buttonBuscarID.UseVisualStyleBackColor = true;
+            this.buttonBuscarID.Click += new System.EventHandler(this.buttonBuscarID_Click);
             // 
             // buttonbaixarfoto
             // 
             this.buttonbaixarfoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonbaixarfoto.Location = new System.Drawing.Point(233, 456);
+            this.buttonbaixarfoto.Location = new System.Drawing.Point(212, 471);
             this.buttonbaixarfoto.Name = "buttonbaixarfoto";
             this.buttonbaixarfoto.Size = new System.Drawing.Size(158, 41);
             this.buttonbaixarfoto.TabIndex = 39;
@@ -287,12 +278,13 @@
             // buttonAtualizar
             // 
             this.buttonAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAtualizar.Location = new System.Drawing.Point(397, 480);
+            this.buttonAtualizar.Location = new System.Drawing.Point(438, 503);
             this.buttonAtualizar.Name = "buttonAtualizar";
             this.buttonAtualizar.Size = new System.Drawing.Size(270, 64);
             this.buttonAtualizar.TabIndex = 41;
             this.buttonAtualizar.Text = "Atualizar";
             this.buttonAtualizar.UseVisualStyleBackColor = true;
+            this.buttonAtualizar.Click += new System.EventHandler(this.buttonAtualizar_Click);
             // 
             // dataGridViewListaDeAlunos
             // 
@@ -336,17 +328,18 @@
             // buttonRemover
             // 
             this.buttonRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRemover.Location = new System.Drawing.Point(109, 503);
+            this.buttonRemover.Location = new System.Drawing.Point(12, 518);
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(90, 41);
             this.buttonRemover.TabIndex = 46;
             this.buttonRemover.Text = "Remover";
             this.buttonRemover.UseVisualStyleBackColor = true;
+            this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click);
             // 
             // buttonRedefinir
             // 
             this.buttonRedefinir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRedefinir.Location = new System.Drawing.Point(301, 503);
+            this.buttonRedefinir.Location = new System.Drawing.Point(301, 518);
             this.buttonRedefinir.Name = "buttonRedefinir";
             this.buttonRedefinir.Size = new System.Drawing.Size(90, 41);
             this.buttonRedefinir.TabIndex = 45;
@@ -358,7 +351,7 @@
             // 
             this.labeltotaldealunos.AutoSize = true;
             this.labeltotaldealunos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeltotaldealunos.Location = new System.Drawing.Point(730, 508);
+            this.labeltotaldealunos.Location = new System.Drawing.Point(714, 531);
             this.labeltotaldealunos.Name = "labeltotaldealunos";
             this.labeltotaldealunos.Size = new System.Drawing.Size(159, 17);
             this.labeltotaldealunos.TabIndex = 47;
@@ -368,7 +361,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 556);
+            this.ClientSize = new System.Drawing.Size(952, 579);
             this.Controls.Add(this.labeltotaldealunos);
             this.Controls.Add(this.buttonRemover);
             this.Controls.Add(this.buttonRedefinir);
@@ -381,7 +374,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.buttonBuscarID);
-            this.Controls.Add(this.buttonIncluir);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.buttonEnviarFoto);
             this.Controls.Add(this.label7);
@@ -412,8 +404,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonIncluir;
         private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Button buttonEnviarFoto;
         private System.Windows.Forms.Label label7;
