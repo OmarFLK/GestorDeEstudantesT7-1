@@ -32,16 +32,16 @@
             this.dataGridViewListaDeAlunos = new System.Windows.Forms.DataGridView();
             this.buttonSalvarEmArquivoDeTexto = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonFeminino = new System.Windows.Forms.RadioButton();
-            this.radioButtonMasculino = new System.Windows.Forms.RadioButton();
-            this.radioButtonTodos = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.radioButtonSim = new System.Windows.Forms.RadioButton();
             this.radioButtonNao = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
+            this.radioButtonTodos = new System.Windows.Forms.RadioButton();
+            this.radioButtonFeminino = new System.Windows.Forms.RadioButton();
+            this.radioButtonMasculino = new System.Windows.Forms.RadioButton();
+            this.dateTimePickerInicial = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerFinal = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListaDeAlunos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -74,6 +74,7 @@
             this.buttonSalvarEmArquivoDeTexto.TabIndex = 42;
             this.buttonSalvarEmArquivoDeTexto.Text = "Salvar Em Arquivo de Texto";
             this.buttonSalvarEmArquivoDeTexto.UseVisualStyleBackColor = true;
+            this.buttonSalvarEmArquivoDeTexto.Click += new System.EventHandler(this.buttonSalvarEmArquivoDeTexto_Click);
             // 
             // groupBox1
             // 
@@ -87,6 +88,75 @@
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dateTimePickerFinal);
+            this.groupBox2.Controls.Add(this.dateTimePickerInicial);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.radioButtonSim);
+            this.groupBox2.Controls.Add(this.radioButtonNao);
+            this.groupBox2.Location = new System.Drawing.Point(228, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(299, 69);
+            this.groupBox2.TabIndex = 44;
+            this.groupBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.TabIndex = 47;
+            this.label2.Text = "Nascidos Entre:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(119, 13);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "Usar intervalo de datas:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // radioButtonSim
+            // 
+            this.radioButtonSim.AutoSize = true;
+            this.radioButtonSim.Location = new System.Drawing.Point(251, 16);
+            this.radioButtonSim.Name = "radioButtonSim";
+            this.radioButtonSim.Size = new System.Drawing.Size(42, 17);
+            this.radioButtonSim.TabIndex = 1;
+            this.radioButtonSim.Text = "Sim";
+            this.radioButtonSim.UseVisualStyleBackColor = true;
+            this.radioButtonSim.CheckedChanged += new System.EventHandler(this.radioButtonSim_CheckedChanged);
+            // 
+            // radioButtonNao
+            // 
+            this.radioButtonNao.AutoSize = true;
+            this.radioButtonNao.Checked = true;
+            this.radioButtonNao.Location = new System.Drawing.Point(200, 16);
+            this.radioButtonNao.Name = "radioButtonNao";
+            this.radioButtonNao.Size = new System.Drawing.Size(45, 17);
+            this.radioButtonNao.TabIndex = 0;
+            this.radioButtonNao.TabStop = true;
+            this.radioButtonNao.Text = "Não";
+            this.radioButtonNao.UseVisualStyleBackColor = true;
+            this.radioButtonNao.CheckedChanged += new System.EventHandler(this.radioButtonNao_CheckedChanged);
+            // 
+            // radioButtonTodos
+            // 
+            this.radioButtonTodos.AutoSize = true;
+            this.radioButtonTodos.Location = new System.Drawing.Point(167, 29);
+            this.radioButtonTodos.Name = "radioButtonTodos";
+            this.radioButtonTodos.Size = new System.Drawing.Size(55, 17);
+            this.radioButtonTodos.TabIndex = 2;
+            this.radioButtonTodos.Text = "Todos";
+            this.radioButtonTodos.UseVisualStyleBackColor = true;
+            this.radioButtonTodos.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
             // radioButtonFeminino
             // 
             this.radioButtonFeminino.AutoSize = true;
@@ -96,6 +166,7 @@
             this.radioButtonFeminino.TabIndex = 1;
             this.radioButtonFeminino.Text = "Feminino";
             this.radioButtonFeminino.UseVisualStyleBackColor = true;
+            this.radioButtonFeminino.CheckedChanged += new System.EventHandler(this.radioButtonFeminino_CheckedChanged);
             // 
             // radioButtonMasculino
             // 
@@ -110,86 +181,19 @@
             this.radioButtonMasculino.UseVisualStyleBackColor = true;
             this.radioButtonMasculino.CheckedChanged += new System.EventHandler(this.radioButtonMasculino_CheckedChanged);
             // 
-            // radioButtonTodos
+            // dateTimePickerInicial
             // 
-            this.radioButtonTodos.AutoSize = true;
-            this.radioButtonTodos.Location = new System.Drawing.Point(167, 29);
-            this.radioButtonTodos.Name = "radioButtonTodos";
-            this.radioButtonTodos.Size = new System.Drawing.Size(55, 17);
-            this.radioButtonTodos.TabIndex = 2;
-            this.radioButtonTodos.Text = "Todos";
-            this.radioButtonTodos.UseVisualStyleBackColor = true;
-            this.radioButtonTodos.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.dateTimePickerInicial.Location = new System.Drawing.Point(93, 43);
+            this.dateTimePickerInicial.Name = "dateTimePickerInicial";
+            this.dateTimePickerInicial.Size = new System.Drawing.Size(85, 20);
+            this.dateTimePickerInicial.TabIndex = 45;
             // 
-            // groupBox2
+            // dateTimePickerFinal
             // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.radioButtonSim);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.radioButtonNao);
-            this.groupBox2.Location = new System.Drawing.Point(228, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(299, 69);
-            this.groupBox2.TabIndex = 44;
-            this.groupBox2.TabStop = false;
-            // 
-            // radioButtonSim
-            // 
-            this.radioButtonSim.AutoSize = true;
-            this.radioButtonSim.Location = new System.Drawing.Point(251, 16);
-            this.radioButtonSim.Name = "radioButtonSim";
-            this.radioButtonSim.Size = new System.Drawing.Size(42, 17);
-            this.radioButtonSim.TabIndex = 1;
-            this.radioButtonSim.Text = "Sim";
-            this.radioButtonSim.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonNao
-            // 
-            this.radioButtonNao.AutoSize = true;
-            this.radioButtonNao.Checked = true;
-            this.radioButtonNao.Location = new System.Drawing.Point(200, 16);
-            this.radioButtonNao.Name = "radioButtonNao";
-            this.radioButtonNao.Size = new System.Drawing.Size(45, 17);
-            this.radioButtonNao.TabIndex = 0;
-            this.radioButtonNao.TabStop = true;
-            this.radioButtonNao.Text = "Não";
-            this.radioButtonNao.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 13);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Usar intervalo de datas:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(119, 43);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(84, 20);
-            this.dateTimePicker1.TabIndex = 45;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(209, 43);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(84, 20);
-            this.dateTimePicker2.TabIndex = 46;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
-            this.label2.TabIndex = 47;
-            this.label2.Text = "Nascidos Entre:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.dateTimePickerFinal.Location = new System.Drawing.Point(200, 42);
+            this.dateTimePickerFinal.Name = "dateTimePickerFinal";
+            this.dateTimePickerFinal.Size = new System.Drawing.Size(85, 20);
+            this.dateTimePickerFinal.TabIndex = 48;
             // 
             // FormImprimir
             // 
@@ -202,6 +206,7 @@
             this.Controls.Add(this.buttonFiltrar);
             this.Name = "FormImprimir";
             this.Text = "FormImprimir";
+            this.Load += new System.EventHandler(this.FormImprimir_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListaDeAlunos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -223,8 +228,8 @@
         internal System.Windows.Forms.RadioButton radioButtonSim;
         internal System.Windows.Forms.RadioButton radioButtonNao;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFinal;
+        private System.Windows.Forms.DateTimePicker dateTimePickerInicial;
     }
 }
